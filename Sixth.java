@@ -1,26 +1,33 @@
 
-// Question 8
-// Create a method to check if a number is a power of two or not.
+// Question 6
+// Create a class with a method to find the difference between the sum of the sqaure and the square of the sum of the first
+// n natural numbers.
 
-// Answer 8
+// Answer 6
+public class NumberDifference {
 
-public class PowerOfTwoChecker {
+    // Method to calculate the difference
+    public static int calculateDifference(int n) {
+        // Calculate the sum of the squares of the first n natural numbers
+        int sumOfSquares = n * (n + 1) * (2 * n + 1) / 6;
 
-  // Method to check if a number is a power of two
-  public boolean isPowerOfTwo(int number) {
-     if (number <= 0) {
-        return false; // Power of two must be a positive integer
-     }
+        // Calculate the sum of the first n natural numbers
+        int sum = n * (n + 1) / 2;
 
-     // A number is a power of two if it has exactly one bit set in its binary representation
-     return (number & (number - 1)) == 0;
-  }
+        // Square the sum
+        int squareOfSum = sum * sum;
 
-  public static void main(String[] args) {
+        // Calculate the difference
+        int difference = squareOfSum - sumOfSquares;
 
-     PowerOfTwoChecker checker = new PowerOfTwoChecker();
-     int number = 16; // Example number
-     boolean result = checker.isPowerOfTwo(number);
-     System.out.println("Is " + number + " a power of two? " + result);
-  }
+        return difference;
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        int n = 10; // You can change this value to test other values of n
+        int result = calculateDifference(n);
+        System.out.println("The difference for n = " + n + " is: " + result);
+    }
 }
+
